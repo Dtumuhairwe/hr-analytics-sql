@@ -148,5 +148,5 @@ These are the headline numbers an analyst would present to leadership:
 
 ## Author
 
-**Doreen Tumuhairwe** — Recent graduate, aspiring Data Analyst.
+**Doreen Tumuhairwe**.
 Feedback welcome.
