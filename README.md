@@ -22,36 +22,9 @@ The project includes schema design, realistic seed data, and business-focused SQ
 
 ## Database schema
 
-```
-+---------------+        +--------------------+        +----------------------+
-| departments   |<------>|     employees      |<------>|  performance_reviews |
-+---------------+   FK   +--------------------+   FK   +----------------------+
-| department_id |        | employee_id (PK)   |        | review_id (PK)       |
-| department_   |        | first_name         |        | employee_id (FK)     |
-|   name        |        | last_name          |        | review_year          |
-| location      |        | gender             |        | rating (1-5)         |
-| annual_budget |        | hire_date          |        +----------------------+
-+---------------+        | termination_date   |
-        ^                | job_title          |        +----------------------+
-        |                | department_id (FK) |        |      salaries        |
-        |                | manager_id (FK ↺)  |        +----------------------+
-        |                +--------------------+        | salary_id (PK)       |
-        |                          |                   | employee_id (FK)     |
-        |                          |                   | salary_year          |
-        |                          |                   | base_salary, bonus   |
-+----------------+                 |                   +----------------------+
-|   projects     |                 |
-+----------------+        +---------------------+
-| project_id     |<------>|  employee_projects  |
-| project_name   |   FK   +---------------------+
-| department_id  |        | employee_id (FK)    |
-| start_date     |        | project_id (FK)     |
-| end_date       |        | role_on_project     |
-| budget         |        | hours_logged        |
-+----------------+        +---------------------+
-```
+Six related tables. Each employee belongs to one department, can be assigned to multiple projects (through the `employee_projects` junction table), and self-references another employee as their manager. Salaries and performance reviews each link to an employee with one row per employee per year.
 
-The `manager_id` field in `employees` self-references `employee_id`, giving us a real organizational hierarchy to query.
+Full table definitions, primary and foreign keys, and check constraints live in [`01_schema.sql`](./01_schema.sql).
 
 ---
 
@@ -130,3 +103,4 @@ Full read-through in [`insights.md`](./insights.md).
 **Doreen Tumuhairwe** 
 
 Email: doreentumuhairwe143@gmail.com
+
