@@ -1,9 +1,15 @@
 # HR Analytics SQL Project
+SQL portfolio project built around a realistic HR database covering employee records, salaries, performance reviews, departments, and projects.
 
-A portfolio SQL project that uses a realistic HR database to answer the kinds of business questions a Data Analyst, BI Analyst, or Junior Data Scientist gets asked on day one: *How many people work here? Who's leaving? Are we paying fairly? Who are our top performers?*
+The goal of the project is to answer common business questions related to:
 
-The project is intentionally scoped for a recent graduate — no exotic syntax, no oversized schemas — but it covers everything a hiring manager wants to see: schema design, joins, aggregation, subqueries, CTEs, and window functions.
+workforce analytics
+compensation
+attrition
+performance
+project staffing
 
+The project includes schema design, realistic seed data, and business-focused SQL analysis queries using joins, aggregations, CTEs, and window functions.
 ---
 
 ## What's inside
