@@ -1,6 +1,8 @@
-# What the Data Shows
+# Insights from the Sample Data
 
-A short read-through of the 25 queries, written the way I'd hand it to a People Operations lead. The numbers below come from the sample data in `02_seed_data.sql`. The data is synthetic but the queries that produced these numbers are real, and the same ones would work on a production HR warehouse.
+This file summarizes the main patterns revealed by the SQL analysis queries in `03_analysis_queries.sql`.
+
+The numbers below come from the synthetic sample data in `02_seed_data.sql`. The dataset is fictional, but the analytical approach and SQL logic are representative of real HR analytics workflows.
 
 ## Headcount
 
@@ -26,16 +28,7 @@ The three 2024 exits were one Engineering, one Customer Support, and one Marketi
 
 ## Top performers
 
-Nine employees earned a 5/5 rating in both 2023 and 2024:
-
-- Engineering: Sarah Chen, Priya Patel, Aisha Williams
-- Sales: Robert Taylor
-- Customer Support: Rachel Green
-- Marketing: Diana Patel
-- Finance: Henry Wong, Oliver Reid
-- HR: Patricia Davis
-
-These are the obvious promotion and retention priorities.
+Nine employees earned 5/5 in both 2023 and 2024, concentrated in Engineering (3) and Finance (2), with one repeat top performer in each of the four remaining departments. These are the obvious promotion and retention priorities.
 
 ## Flight-risk shortlist (Q25)
 
