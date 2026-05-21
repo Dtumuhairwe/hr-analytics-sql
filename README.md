@@ -1,15 +1,11 @@
 # HR Analytics SQL Project
+
 SQL portfolio project built around a realistic HR database covering employee records, salaries, performance reviews, departments, and projects.
 
-The goal of the project is to answer common business questions related to:
+The goal of the project is to answer common business questions about workforce analytics, compensation, attrition, performance, and project staffing.
 
-workforce analytics
-compensation
-attrition
-performance
-project staffing
+The project includes schema design, realistic seed data, and business-focused SQL queries using joins, aggregations, CTEs, and window functions.
 
-The project includes schema design, realistic seed data, and business-focused SQL analysis queries using joins, aggregations, CTEs, and window functions.
 ---
 
 ## What's inside
@@ -18,8 +14,9 @@ The project includes schema design, realistic seed data, and business-focused SQ
 |---|---|
 | `01_schema.sql` | `CREATE TABLE` statements for 6 related tables, with primary and foreign keys. |
 | `02_seed_data.sql` | Realistic sample data: 6 departments, 40 employees (active + terminated), 3 years of salaries, 2 years of performance reviews, 8 projects, 31 project assignments. |
-| `03_analysis_queries.sql` | 25 business questions, grouped Basic → Intermediate → Advanced, with the question stated above each query. |
+| `03_analysis_queries.sql` | 25 business questions, from simple headcount through window-function analytics, with the question stated above each query. |
 | `HR_Analytics_Dashboard.xlsx` | Excel summary dashboard with the key results as tables and charts. |
+| `insights.md` | Short read-through of what the queries surface, in analyst voice. |
 
 ---
 
@@ -69,56 +66,30 @@ The `manager_id` field in `employees` self-references `employee_id`, giving us a
 ## How to run it
 
 1. Create an empty database in your MySQL client (MySQL Workbench, DBeaver, command line, etc.):
-
    ```sql
    CREATE DATABASE hr_analytics;
    USE hr_analytics;
    ```
-
 2. Run the scripts in order:
-
    ```bash
    mysql -u <user> -p hr_analytics < 01_schema.sql
    mysql -u <user> -p hr_analytics < 02_seed_data.sql
    mysql -u <user> -p hr_analytics < 03_analysis_queries.sql
    ```
-
 3. Open `HR_Analytics_Dashboard.xlsx` to see the headline metrics rendered as charts.
 
 ---
 
-## The 25 business questions
+## Example analysis areas
 
-### Basic (Q1 – Q5)
-1. How many employees does the company currently have?
-2. What is the headcount in each department?
-3. List all employees hired in 2023 or later.
-4. What is the gender split across the company?
-5. Top 10 highest base salaries in 2025.
-
-### Intermediate (Q6 – Q17)
-6. Average base salary and total compensation per department.
-7. Which departments pay above the company-wide average?
-8. Gender pay gap by department.
-9. Tenure of each currently-active employee.
-10. Each employee paired with their manager.
-11. Which managers have the most direct reports?
-12. Annual headcount (active employees at end of each year, 2022–2025).
-13. Attrition rate by year.
-14. Two-time top performers (rating = 5 in both 2023 and 2024).
-15. Project staffing — people and hours per project.
-16. Salary band classification per employee.
-17. Headcount distribution across salary bands.
-
-### Advanced (Q18 – Q25)
-18. Rank employees by 2025 total comp within each department (`RANK() OVER`).
-19. Year-over-year salary change per employee (`LAG`).
-20. Running total of new hires per department by year.
-21. Top 3 highest-paid employees per department (`DENSE_RANK`).
-22. Employees earning above their department's median salary (`PERCENT_RANK`).
-23. Average rating per manager — who develops their team best?
-24. Tenure cohort vs. average performance rating.
-25. **Flight-risk shortlist** — high performers (rating ≥ 4 in 2024) who got <5% raise into 2025.
+- Workforce headcount and hiring trends
+- Compensation and pay distribution
+- Attrition analysis
+- Performance and promotion analysis
+- Manager/team reporting
+- Project staffing analysis
+- Flight-risk identification
+- Salary progression and ranking analysis
 
 ---
 
@@ -127,11 +98,13 @@ The `manager_id` field in `employees` self-references `employee_id`, giving us a
 These are the headline numbers an analyst would present to leadership:
 
 - **Headcount.** 36 active employees across 6 departments. Customer Support (9) and Engineering (7) are the largest.
-- **Compensation.** Engineering and Finance carry the highest average total comp; Customer Support sits lowest, as expected.
+- **Compensation.** Sales has the highest average total comp in 2025 at about $163k (commission carries most of it), followed by Finance ($158k), HR ($155k), and Engineering ($144k). Customer Support sits lowest at $95k.
 - **Gender pay.** Average base salaries by gender are within a few percent in most departments — but the spread widens in roles with very few people, which is the right caveat to call out.
-- **Attrition.** Annualized attrition has been in the 5–8% range; not alarming, but worth watching by team.
-- **Top performers.** A small group of employees rated 5/5 in both 2023 and 2024 — these are obvious promotion candidates.
-- **Flight risk (Q25).** A handful of high-performing employees received raises under 5% into 2025 — the kind of list HR can act on this quarter.
+- **Attrition.** 3.3% in 2023, ticked up to 8.3% in 2024 (three terminations), and 0% so far in 2025. The 2024 exits spanned three different teams, so no single department is bleeding people.
+- **Top performers.** Nine employees rated 5/5 in both 2023 and 2024 — the obvious promotion and retention priorities.
+- **Flight risk (Q25).** Nine high performers got raises under 5% into 2025. The five most exposed got between 2.1% and 3.0% — exactly the kind of list HR can act on this quarter.
+
+Full read-through in [`insights.md`](./insights.md).
 
 ---
 
@@ -154,5 +127,6 @@ These are the headline numbers an analyst would present to leadership:
 
 ## Author
 
-**Doreen Tumuhairwe**.
-Feedback welcome.
+**Doreen Tumuhairwe** 
+
+Email: doreentumuhairwe143@gmail.com
