@@ -68,7 +68,6 @@ Full table definitions, primary and foreign keys, and check constraints live in 
 
 ## Key insights from the sample data
 
-These are the headline numbers an analyst would present to leadership:
 
 - **Headcount.** 36 active employees across 6 departments. Customer Support (9) and Engineering (7) are the largest.
 - **Compensation.** Sales has the highest average total comp in 2025 at about $163k (commission carries most of it), followed by Finance ($158k), HR ($155k), and Engineering ($144k). Customer Support sits lowest at $95k.
